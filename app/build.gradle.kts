@@ -26,6 +26,10 @@ android {
             )
         }
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -42,11 +46,16 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
     //endregion
 
     //region material design
     implementation(libs.material)
+
     //endregion
 
     //region test
