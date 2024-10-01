@@ -8,4 +8,5 @@
     <string name="fetch">Fetch</string>
     <string name="carbon_emissions_estimation">carbon emissions estimation</string>
     <string name="estimated_carbon_title">Estimated Carbon emissions:</string>
+    <string name="data_size_validation_msg">input number should be an integer between 1 and 100</string>
 </resources>

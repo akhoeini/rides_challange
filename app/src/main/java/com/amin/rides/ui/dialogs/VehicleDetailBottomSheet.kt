@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.amin.rides.databinding.VehicleDetailBottomSheetBinding
+import javax.inject.Inject
 import kotlin.math.max
 import kotlin.math.min
 
-class VehicleDetailBottomSheet(private val kilomtrage:Int) : ModalBottomSheet() {
+
+class VehicleDetailBottomSheet @Inject constructor (private val kilomtrage:Int) : ModalBottomSheet() {
     private lateinit var binding: VehicleDetailBottomSheetBinding
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -5,8 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.amin.rides.data.Vehicle
+import com.amin.rides.data.repositories.network.NetworkRepo
 import com.amin.rides.data.wrappers.VehicleDataWrapper
 import com.amin.rides.ui.viewmodels.states.VehicleListState
+import com.amin.rides.utils.Util
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +16,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class VehicleListViewModel @Inject internal constructor(private val vehicleDataWrapper: VehicleDataWrapper) :
+class VehicleListViewModel @Inject internal constructor(private val vehicleDataWrapper: VehicleDataWrapper, private val util: Util) :
     ViewModel() {
 
     private var _dataCount: Int? = null
@@ -62,7 +64,7 @@ class VehicleListViewModel @Inject internal constructor(private val vehicleDataW
     }
 
     fun dataCountTextChanged(countText: String) {
-        if (countTextIsValid(countText)){
+        if (util.countTextIsValid(countText)){
             _dataCount=countText.toInt()
             _fetchBtnStatus.value=FetchButtonStatus.FETCH
         }else{
@@ -71,17 +73,7 @@ class VehicleListViewModel @Inject internal constructor(private val vehicleDataW
         }
     }
 
-    private fun countTextIsValid(countText: String): Boolean {
-        try {
-            val countValue=countText.toInt()
-            if (countValue<1||countValue>100) {
-                return false
-            }
-        }catch (exception:NumberFormatException){
-            return false
-        }
-        return true
-    }
+
 
     enum class FetchButtonStatus{
         FETCH,

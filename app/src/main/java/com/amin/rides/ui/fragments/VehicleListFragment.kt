@@ -75,6 +75,8 @@ class VehicleListFragment : Fragment() {
                     binding.fetchBtn.isEnabled = false
                     binding.fetchBtn.text = getString(R.string.count_not_valid)
                     binding.fetchBtn.alpha = 0.7f
+                    Toast.makeText(context,
+                        getString(R.string.data_size_validation_msg),Toast.LENGTH_LONG).show()
                 }
 
                 VehicleListViewModel.FetchButtonStatus.LOADING -> {
