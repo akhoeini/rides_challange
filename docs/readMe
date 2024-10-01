@@ -1,0 +1,27 @@
+This Project is a combination of android:
+1.MVVM
+2.single activity App
+3.androidx Navigation
+4.DI(dagger/Hilt)
+5.clean code
+6.retrofit
+7.swipe refresh layout
+8.recycler view
+9.kotlin
+10.room
+11.unit test
+12.coroutines
+13.viewbinding
+14.bottom sheet dialog
+15.constraintLayout
+
+The UI is very basic and we can still makes lots of improvements for example we can define style and use style for ui i tried to test my app both in vertical and horizontal mode but still it might not work well if
+user,use android accessibility features.
+we can add different animations for example fragment transitions.
+we can also extract all hardcoded strings(I did my best not to hardcode...)and prepare a multilingual app.
+Also we can create a version to handle night mode or Generally,a better UI/UX design.
+
+The app is over-designed for the scope of this project but i decided to create it like that to show off my skills :)
+
+
+
