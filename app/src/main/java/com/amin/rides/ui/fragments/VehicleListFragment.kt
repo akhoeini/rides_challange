@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.widget.doAfterTextChanged
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amin.rides.R
 import com.amin.rides.data.Vehicle
@@ -33,7 +35,11 @@ class VehicleListFragment : Fragment() {
 
     private lateinit var binding: FragmentVehicleListBinding
 
-    private val adapter: VehiclesAdapter = VehiclesAdapter()
+    private val adapter: VehiclesAdapter = VehiclesAdapter(onItemClicked = { item:Vehicle ->
+        val bundle = Bundle()
+        bundle.putSerializable("vehicle",item)
+        findNavController().navigate(R.id.nav_vehicle_detail, bundle)
+    })
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

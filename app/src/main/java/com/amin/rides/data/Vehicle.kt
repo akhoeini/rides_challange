@@ -1,6 +1,7 @@
 package com.amin.rides.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Vehicle(
     val id:Long,
@@ -18,4 +19,4 @@ data class Vehicle(
     val mileage:Int,
     val kilometrage:Int,
     @SerializedName("license_plate")val licensePlate:String
-    )
+    ):Serializable

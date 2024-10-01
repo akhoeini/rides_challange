@@ -6,4 +6,6 @@
     <string name="count_not_valid">Count Not Valid</string>
     <string name="refresh">Refresh</string>
     <string name="fetch">Fetch</string>
+    <string name="carbon_emissions_estimation">carbon emissions estimation</string>
+    <string name="estimated_carbon_title">Estimated Carbon emissions:</string>
 </resources>

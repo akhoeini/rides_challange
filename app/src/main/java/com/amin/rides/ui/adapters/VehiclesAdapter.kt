@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amin.rides.R
 import com.amin.rides.data.Vehicle
 
-class VehiclesAdapter : RecyclerView.Adapter<VehiclesAdapter.ViewHolder>() {
+class VehiclesAdapter(private val onItemClicked:(item:Vehicle) ->Unit ) : RecyclerView.Adapter<VehiclesAdapter.ViewHolder>() {
     private var vehicles: List<Vehicle>? = null
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -31,6 +31,10 @@ class VehiclesAdapter : RecyclerView.Adapter<VehiclesAdapter.ViewHolder>() {
 
         holder.makeModel.text = vehicle.makeModel
         holder.vin.text = vehicle.vin
+
+        holder.itemView.setOnClickListener {
+            onItemClicked.invoke(vehicle)
+        }
     }
 
 
