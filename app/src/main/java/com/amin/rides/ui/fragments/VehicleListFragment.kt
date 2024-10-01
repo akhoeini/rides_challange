@@ -58,12 +58,17 @@ class VehicleListFragment : Fragment() {
         viewModel.fetchBtnStatus.observe(viewLifecycleOwner) { btnStatus ->
             when (btnStatus) {
                 VehicleListViewModel.FetchButtonStatus.FETCH -> {
+                    binding.swipeRefresh.isRefreshing=false
+                    binding.swipeRefresh.isEnabled=true
+
                     binding.fetchBtn.isEnabled = true
                     binding.fetchBtn.text = getString(R.string.fetch)
                     binding.fetchBtn.alpha = 1f
                 }
 
                 VehicleListViewModel.FetchButtonStatus.REFRESH -> {
+                    binding.swipeRefresh.isRefreshing=false
+                    binding.swipeRefresh.isEnabled=true
 
                     binding.fetchBtn.isEnabled = true
                     binding.fetchBtn.text = getString(R.string.refresh)
@@ -72,6 +77,9 @@ class VehicleListFragment : Fragment() {
                 }
 
                 VehicleListViewModel.FetchButtonStatus.NOT_VALID -> {
+                    binding.swipeRefresh.isRefreshing=false
+                    binding.swipeRefresh.isEnabled=false
+
                     binding.fetchBtn.isEnabled = false
                     binding.fetchBtn.text = getString(R.string.count_not_valid)
                     binding.fetchBtn.alpha = 0.7f
@@ -80,6 +88,9 @@ class VehicleListFragment : Fragment() {
                 }
 
                 VehicleListViewModel.FetchButtonStatus.LOADING -> {
+                    binding.swipeRefresh.isRefreshing=true
+                    binding.swipeRefresh.isEnabled=false
+
                     binding.fetchBtn.isEnabled = false
                     binding.fetchBtn.text = getString(R.string.loading)
                     binding.fetchBtn.alpha = 0.7f
@@ -143,6 +154,11 @@ class VehicleListFragment : Fragment() {
         binding.dataCountEt.doAfterTextChanged { text ->
             //in the xml input type is number so it is empty or a number maybe i just need to put limit to be sure it's an int but for now i keep it simple
             viewModel.dataCountTextChanged(text.toString())
+        }
+        binding.swipeRefresh.setOnRefreshListener{
+            context?.hideKeyboard(binding.swipeRefresh)
+            viewModel.fetchData()
+
         }
 
     }
