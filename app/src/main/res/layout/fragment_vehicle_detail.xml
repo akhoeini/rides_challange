@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.VehicleDetailFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/vehicle_detail_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/vehicle_card_margin"
+        android:layout_marginEnd="@dimen/vehicle_card_margin"
+        android:layout_marginTop="@dimen/vehicle_card_margin"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/detail_vin_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="741WJ3JM585168951"
+                android:textColor="@color/blue"/>
+
+            <TextView
+                android:id="@+id/detail_make_model_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/child_views_default_margin"
+                android:maxLines="1"
+                android:textColor="@color/dark_pink"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_vin_tv"
+                tools:text="Audi A4" />
+
+            <TextView
+                android:id="@+id/detail_color_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/child_views_default_margin"
+                android:maxLines="1"
+                android:textColor="@color/purple_red"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_make_model_tv"
+                tools:text="Car Color" />
+
+            <TextView
+                android:id="@+id/detail_car_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/child_views_default_margin"
+                android:maxLines="1"
+                android:textColor="@color/dark_orange"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_color_tv"
+                tools:text="Car Type" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_carbon_emissions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/child_views_default_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_car_type_tv"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/dark_pink"
+                android:text="@string/carbon_emissions_estimation"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</FrameLayout>
