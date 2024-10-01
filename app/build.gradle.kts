@@ -82,6 +82,7 @@ dependencies {
     //region db(room)
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
+    kapt (libs.androidx.room.compiler)
     //endregion
 
     //region di(dagger)

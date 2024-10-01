@@ -4,6 +4,7 @@ import android.util.Log
 import com.amin.rides.data.Vehicle
 import com.amin.rides.data.exceptions.GenericException
 import com.amin.rides.data.exceptions.NetworkException
+import com.amin.rides.data.repositories.local.LocalRepo
 import com.amin.rides.data.repositories.network.NetworkRepo
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 @Singleton
 class VehicleDataWrapper @Inject constructor(
     private val networkRepo: NetworkRepo,
-//    private val localRepo:LocalRepo
+    private val localRepo: LocalRepo
 ) {
     private val tag = "VehicleDataWrapper"
 
@@ -23,7 +24,7 @@ class VehicleDataWrapper @Inject constructor(
             var vehicles = networkRepo.fetchVehiclesByCountAndSortByFilter(count)
 
             //save data in db but it's above the scope of this project
-//                localRepo.saveVehicles(vehicles)
+            localRepo.saveVehicles(vehicles)
 
             //always true because i've hardcoded the filter
             if (filter == "vin"){
