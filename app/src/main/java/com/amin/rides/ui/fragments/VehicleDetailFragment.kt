@@ -1,4 +1,4 @@
-package com.amin.rides.ui
+package com.amin.rides.ui.fragments
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.amin.rides.R
+import com.amin.rides.ui.viewmodels.VehicleDetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class VehicleDetailFragment : Fragment() {
 
     companion object {

@@ -2,4 +2,8 @@
     <string name="app_name">Rides</string>
     <string name="fetch_btn_text">Show</string>
     <string name="data_size_hint">Data Size</string>
+    <string name="loading">LOADING</string>
+    <string name="count_not_valid">Count Not Valid</string>
+    <string name="refresh">Refresh</string>
+    <string name="fetch">Fetch</string>
 </resources>

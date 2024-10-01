@@ -5,12 +5,12 @@
     app:startDestination="@id/nav_vehicle_list">
 
     <fragment
-        android:name="com.amin.rides.ui.VehicleListFragment"
+        android:name="com.amin.rides.ui.fragments.VehicleListFragment"
         android:id="@+id/nav_vehicle_list"
         android:label="Vehicle List"/>
 
     <fragment
-        android:name="com.amin.rides.ui.VehicleDetailFragment"
+        android:name="com.amin.rides.ui.fragments.VehicleDetailFragment"
         android:id="@+id/nav_vehicle_detail">
 <!--        <argument></argument>-->
     </fragment>

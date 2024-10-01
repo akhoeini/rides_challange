@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -18,7 +20,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String","Base_URL","\"https://random-data-api.com/api/\"")
+        }
         release {
+            buildConfigField("String","Base_URL","\"https://random-data-api.com/api/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -29,6 +35,7 @@ android {
 
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -77,14 +84,15 @@ dependencies {
 
     //region di(dagger)
     implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
     //endregion
 
     //region async
     implementation(libs.kotlinx.coroutines.android)
     //endregion
+}
 
-
-
-
-
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
