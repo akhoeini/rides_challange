@@ -62,14 +62,25 @@ class VehicleListViewModel @Inject internal constructor(private val vehicleDataW
     }
 
     fun dataCountTextChanged(countText: String) {
-        if (countText.isNullOrEmpty()||countText.isBlank()){
-            _dataCount=null
-            _fetchBtnStatus.value=FetchButtonStatus.NOT_VALID
-        }else{
-            //it's a number because it's been limited by inputType
+        if (countTextIsValid(countText)){
             _dataCount=countText.toInt()
             _fetchBtnStatus.value=FetchButtonStatus.FETCH
+        }else{
+            _dataCount=null
+            _fetchBtnStatus.value=FetchButtonStatus.NOT_VALID
         }
+    }
+
+    private fun countTextIsValid(countText: String): Boolean {
+        try {
+            val countValue=countText.toInt()
+            if (countValue<1||countValue>100) {
+                return false
+            }
+        }catch (exception:NumberFormatException){
+            return false
+        }
+        return true
     }
 
     enum class FetchButtonStatus{
